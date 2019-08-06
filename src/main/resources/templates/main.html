@@ -12,6 +12,7 @@
 
   <li ><a th:href="@{'/'+ ${community.getId()}}" th:text="${community.name}"></a> </li>
   <li ><a th:href="@{'/Delete/'+ ${community.getId()}}" >usuń</a> </li>
+  <li ><a th:href="@{'/EditForm/'+ ${community.getId()}}" >edytuj</a> </li>
 
 
 </ul>

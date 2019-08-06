@@ -66,4 +66,21 @@ public class CommunityController {
         return "redirect:/";
     }
 
+    @GetMapping("/EditForm/{id}")
+    public String delete(Model model, @PathVariable(value = "id") Long id) {
+
+        Optional<Community> optional = communityRepository.findById(id);
+
+        Community community;
+        if (optional.isPresent()) {
+            community = optional.orElse(null);
+            model.addAttribute("community", community);
+            return "editForm";
+        } else {
+            community = null;
+        }
+
+        return "notfound";
+    }
+
 }

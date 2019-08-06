@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<form method="post" action="/Add" th:object="${community}">
+  <label>Nazwa Wspólnoty
+    <input type="text" name="name" th:field="*{name} "/>
+  </label>
+  <input type="hidden" name="id" th:field="*{id}"/>
+<button type="submit">Dodaj</button>
+</form>
+
+</body>
+</html>
