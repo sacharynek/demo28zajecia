@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class CommunityController {
@@ -33,8 +34,17 @@ public class CommunityController {
     }
 
     @RequestMapping("/{id}")
-    public String displayDetails(Model model, @PathVariable(value="id") String id){
-        Community community = communityRepository.getOne(Long.parseLong(id));
+    public String displayDetails(Model model, @PathVariable(value="id") Long id){
+        Optional<Community> optional = communityRepository.findById(id);
+
+        Community community ;
+        if(optional.isPresent()){
+            community = optional.get();
+        } else {
+            community = null;
+        }
+
+       // community = optional.orElse(null);
 
         model.addAttribute("community", community);
 
