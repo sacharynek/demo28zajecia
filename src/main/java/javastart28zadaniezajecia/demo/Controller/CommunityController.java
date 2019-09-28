@@ -1,6 +1,6 @@
 package javastart28zadaniezajecia.demo.Controller;
 
-import javastart28zadaniezajecia.demo.model.Community;
+import javastart28zadaniezajecia.demo.model.community.Community;
 import javastart28zadaniezajecia.demo.repository.CommunityRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -8,5 +8,10 @@
         <a th:href="@{'/'}">powrót</a></td>
 
         <h1 th:text=" ${community.getName()}"></h1>
+  <ul >
+    <li th:each="budynek: ${community.getBuildings()}">
+      <span th:text="|${budynek.street} ${budynek.number}|"></span>
+    </li>
+  </ul>
 </body>
 </html>

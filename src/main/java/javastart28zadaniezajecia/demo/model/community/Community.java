@@ -1,10 +1,14 @@
-package javastart28zadaniezajecia.demo.model;
+package javastart28zadaniezajecia.demo.model.community;
 
+
+import javastart28zadaniezajecia.demo.model.building.Building;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 public class Community {
@@ -15,16 +19,17 @@ public class Community {
 
     private String name;
 
-   // Building building;
+    @OneToMany(mappedBy = "community")
+    private List<Building> buildings;
 
-   // Address address;
+    // Address address;
 
 
     public Community() {
     }
 
-    public Community(Long Id, String name){
-        this.Id = Id;
+    public Community( String name) {
+
         this.name = name;
     }
 
@@ -43,5 +48,13 @@ public class Community {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Building> getBuildings() {
+        return buildings;
+    }
+
+    public void setBuildings(List<Building> buildings) {
+        this.buildings = buildings;
     }
 }
